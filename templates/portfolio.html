@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="section portfolio-hero">
+    <div class="container">
+        <p class="eyebrow">Portfolio and Project Breakdown</p>
+        <h1>Portfolio</h1>
+        <p class="page-intro">
+            A focused selection of stylized, realistic, and technical work.
+        </p>
+
+        <div class="filter-bar" aria-label="Project filters">
+            <button class="filter-btn active" type="button" data-filter="all">All</button>
+            <button class="filter-btn" type="button" data-filter="stylized">Stylized</button>
+            <button class="filter-btn" type="button" data-filter="realistic">Realistic</button>
+            <button class="filter-btn" type="button" data-filter="hardsurface">Hard Surface</button>
+            <button class="filter-btn" type="button" data-filter="character">Character</button>
+            <button class="filter-btn" type="button" data-filter="creature">Creature</button>
+            <button class="filter-btn" type="button" data-filter="technical">Technical</button>
+        </div>
+    </div>
+</section>
+
+<section class="section portfolio-list-section">
+    <div class="container">
+        <div class="project-grid portfolio-grid">
+            {% for project in projects %}
+            <article class="project-card filterable-card" data-category="{{ ' '.join(project.filters) }}">
+                <a class="project-card-link" href="{{ url_for('project_detail', slug=project.slug) }}">
+                    <div class="project-image">
+                        <img src="{{ url_for('static', filename=project.cover_image) }}" alt="{{ project.title }} cover image">
+                    </div>
+
+                    <div class="project-card-content">
+                        <p class="project-category">{{ project.category }}</p>
+                        <h3>{{ project.title }}</h3>
+                        <p>{{ project.short_description }}</p>
+
+                        <div class="project-meta">
+                            <span>{{ project.role }}</span>
+                        </div>
+
+                        <span class="text-link">View Project →</span>
+                    </div>
+                </a>
+            </article>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

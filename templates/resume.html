@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="section resume-section">
+    <div class="container">
+        <p class="eyebrow">Resume</p>
+        <h1>Resume</h1>
+        <p class="page-intro">
+            View my resume directly below or download the PDF for a full version.
+        </p>
+
+        <div class="resume-actions">
+            <a class="btn btn-primary" href="{{ url_for('static', filename='resume/resume2026.pdf') }}" target="_blank">
+                Download Resume
+            </a>
+        </div>
+
+        <div class="resume-preview">
+            <iframe
+                src="{{ url_for('static', filename='resume/resume2026.pdf') }}#toolbar=0&navpanes=0&scrollbar=0"
+                title="Jing Lyu Resume PDF">
+            </iframe>
+        </div>
+    </div>
+</section>
+{% endblock %}

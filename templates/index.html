@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="hero section">
+    <div class="container hero-grid">
+        <div class="hero-content">
+            <p class="eyebrow">Home</p>
+            <h1>{{ hero_title }}</h1>
+            <h2>{{ hero_subtitle }}</h2>
+            <p class="hero-intro">
+                3D character and creature artist specializing in stylized and realistic characters, creatures, and props for games, animation, and film. 
+                Passionate about solving technical challenges, collaborating across teams, and delivering production-ready assets that support compelling visual storytelling.
+            </p>
+
+            <div class="hero-actions">
+                <a class="btn btn-primary" href="#demo-reel">Demo Reel</a>
+                <a class="btn btn-secondary" href="{{ url_for('portfolio') }}">Portfolio</a>
+                <a class="btn btn-secondary" href="{{ url_for('resume') }}">Resume</a>
+                <a class="btn btn-secondary" href="{{ url_for('contact') }}">Contact</a>
+            </div>
+        </div>
+
+        <div class="hero-featured-art">
+            <img src="{{ url_for('static', filename='images/hero-art.jpg') }}" alt="Featured 3D character render by Jing Lyu">
+        </div>
+    </div>
+</section>
+
+<section id="demo-reel" class="section reel-section">
+    <div class="container">
+        <div class="section-heading compact-heading">
+            <p class="eyebrow">Featured Video</p>
+            <h2>Demo Reel</h2>
+        </div>
+
+        <div class="video-wrapper">
+            <iframe
+                src="{{ reel_url }}"
+                title="Jing Lyu Demo Reel"
+                frameborder="0"
+                allow="autoplay; fullscreen; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+</section>
+
+<section class="section featured-projects-section">
+    <div class="container">
+        <div class="section-heading compact-heading">
+            <p class="eyebrow">Featured Works</p>
+            <h2>Featured Projects</h2>
+        </div>
+
+        <div class="project-grid">
+            {% for project in featured_projects %}
+            <article class="project-card">
+                <div class="project-image">
+                    <img src="{{ url_for('static', filename=project.cover_image) }}" alt="{{ project.title }} cover image">
+                </div>
+
+                <div class="project-card-content">
+                    <p class="project-category">{{ project.category }}</p>
+                    <h3>{{ project.title }}</h3>
+                    <p>{{ project.short_description }}</p>
+                    <a class="text-link" href="{{ url_for('project_detail', slug=project.slug) }}">
+                        View Project →
+                    </a>
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% endblock %}

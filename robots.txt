@@ -1,0 +1,26 @@
+# Portfolio Website
+# Please do not index or archive this site.
+
+User-agent: *
+Disallow: /
+
+User-agent: Googlebot
+Disallow: /
+
+User-agent: Bingbot
+Disallow: /
+
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: Applebot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /

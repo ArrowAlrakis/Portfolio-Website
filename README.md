@@ -4,7 +4,7 @@ A responsive portfolio website showcasing selected 3D character, creature, hard-
 
 **Live Portfolio**
 
-https://arrowalrakis.github.io/Portfolio-Website/
+https://arrowalrakis.github.io/portfolio-website/
 
 (GitHub Pages deployment)
 
